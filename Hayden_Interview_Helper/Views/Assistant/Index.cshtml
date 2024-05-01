@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Assistant";
+    AssistantModel assistant = ViewBag.Message;
+}
+
+@model AssistantModel
+<h1>Resume Assistant</h1>
+<p style="font-size:large">Welcome to Hayden's resume assistant please feel free to ask any question about Hayden, his experience, and why he may be a good fit at your company!</p>
+
+<form action="" method="post" style="height:auto;" autocomplete="off">
+    <div class="form-group" style="height:auto;background-color:black;color:lawngreen;min-height:60vh;border:groove;font-size:large;overflow-y:scroll;max-height:60vh">
+        @Html.Raw(assistant.Response)
+    </div>
+
+    <div class="form-group">
+        <p style="margin-top:10px;font-size:large">ASK AWAY!!!</p>
+        <input type="text" class="form-control" id="prompt" asp-for="Prompt">
+
+    </div>
+    <button type="submit" class="btn btn-primary" asp-controller="Assistant" asp-action="Index" style="margin-top:10px">Submit</button>
+</form>
+
+
